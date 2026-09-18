@@ -9,9 +9,7 @@ Acesse em: http://localhost:5000
 import json, io, os, re, sqlite3, uuid, sys
 from datetime import datetime
 from functools import wraps
-
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
 from flask import Flask, request, send_file, render_template_string, session, redirect, url_for, Response
 
 from datajud_client import buscar_jurisprudencia
@@ -157,7 +155,7 @@ def gerar_pdf(caso, score):
             self.set_text_color(*GOLD)
             self.cell(0, 6, "JURIMETRIA & RISCO ESTRATEGICO", new_x="LMARGIN", new_y="NEXT", align="C")
             self.set_text_color(*TEXT)
-            self.ln(8)
+            self.set_y(46)
 
         def footer(self):
             self.set_y(-20)

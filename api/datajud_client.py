@@ -1,9 +1,9 @@
-import requests, os
+import requests
 
 def buscar_jurisprudencia(tipo_acao: str) -> list[dict]:
     url = "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search"
     headers = {
-        "Authorization": f"APIKey {os.environ.get('DATAJUD_API_KEY', '')}",
+        "Authorization": "APIKey cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw==",
         "Content-Type": "application/json"
     }
 

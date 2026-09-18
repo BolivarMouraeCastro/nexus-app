@@ -299,6 +299,7 @@ PAINEL_HTML = """
                 <th>Probabilidade</th>
                 <th>Faixa (R$)</th>
                 <th>Acordo (R$)</th>
+                <th>Simulador</th>
             </tr>
         </thead>
         <tbody>
@@ -309,9 +310,10 @@ PAINEL_HTML = """
                 <td>{{ l.cliente }}</td>
                 <td>{{ l.reu }}</td>
                 <td>{{ l.tipo_acao }}</td>
-                <td>{{ l.probabilidade }}</td>
-                <td>{{ l.faixa_valor }}</td>
-                <td>{{ l.valor_acordo }}</td>
+                <td>{{ "%.0f"|format(l.prob_exito * 100) }}%</td>
+                <td>R$ {{ l.faixa_min }} - R$ {{ l.faixa_max }}</td>
+                <td>R$ {{ l.ponto_acordo }}</td>
+                <td>{% if l.token %}<a href="/simulador/{{ l.token }}" target="_blank" style="color:#C5A880;font-weight:700;text-decoration:none;">Enviar ao Cliente</a>{% else %}-{% endif %}</td>
             </tr>
             {% endfor %}
         </tbody>
